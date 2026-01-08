@@ -1,18 +1,30 @@
 import React from "react";
+import Google from "../assets/google.png";
+import Adobe from "../assets/adobe.png";
+import Airbnb from "../assets/airbnb.png";
+import Amazon from "../assets/amazon.png";
+import Apple from "../assets/apple.png";
+import Hubspot from "../assets/hubspot.png";
+import Meta from "../assets/meta.png";
+import Microsoft from "../assets/microsoft.png";
+import Netflix from "../assets/netflix.png";
+import Salesforce from "../assets/salesforce.png";
+import Shopify from "../assets/shopify2.png";
+import Uber from "../assets/uber.png";
 
 const partners = [
-  { name: "Google", openings: "150+ openings", logo: "G" },
-  { name: "Microsoft", openings: "120+ openings", logo: "■" },
-  { name: "Amazon", openings: "200+ openings", logo: "a" },
-  { name: "Meta", openings: "80+ openings", logo: "∞" },
-  { name: "Apple", openings: "60+ openings", logo: "" },
-  { name: "Netflix", openings: "45+ openings", logo: "N" },
-  { name: "Salesforce", openings: "90+ openings", logo: "☁" },
-  { name: "Adobe", openings: "70+ openings", logo: "A" },
-  { name: "Shopify", openings: "55+ openings", logo: "S" },
-  { name: "HubSpot", openings: "40+ openings", logo: "⚙" },
-  { name: "Uber", openings: "65+ openings", logo: "▶" },
-  { name: "Airbnb", openings: "35+ openings", logo: "⌂" },
+  { name: "Google", openings: "150+ openings", logo: Google },
+  { name: "Microsoft", openings: "120+ openings", logo: Microsoft },
+  { name: "Amazon", openings: "200+ openings", logo: Amazon },
+  { name: "Meta", openings: "80+ openings", logo: Meta },
+  { name: "Apple", openings: "60+ openings", logo: Apple },
+  { name: "Netflix", openings: "45+ openings", logo: Netflix },
+  { name: "Salesforce", openings: "90+ openings", logo: Salesforce },
+  { name: "Adobe", openings: "70+ openings", logo: Adobe },
+  { name: "Shopify", openings: "55+ openings", logo: Shopify },
+  { name: "HubSpot", openings: "40+ openings", logo: Hubspot },
+  { name: "Uber", openings: "65+ openings", logo: Uber },
+  { name: "Airbnb", openings: "35+ openings", logo: Airbnb },
 ];
 
 const HiringPartners = () => {
@@ -25,7 +37,6 @@ const HiringPartners = () => {
           Our <span className="text-blue-600">Hiring</span> Partners
         </h2>
 
-        {/* Description with exact line endings */}
         <p className="text-sm sm:text-base text-gray-600 mt-4 leading-relaxed">
           We've built strong relationships with leading companies who actively
           <span className="hidden md:inline"><br /></span>
@@ -37,13 +48,17 @@ const HiringPartners = () => {
 
       {/* Partners Grid */}
       <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-        {partners.map((partner, index) => (
+        {partners.map((partner) => (
           <div
-            key={index}
+            key={partner.name}
             className="flex flex-col items-center justify-center bg-gray-50 rounded-lg py-6 hover:shadow-md transition"
           >
-            <div className="w-12 h-12 flex items-center justify-center bg-gray-100 rounded-md text-xl font-semibold text-gray-700 mb-3">
-              {partner.logo}
+            <div className="w-12 h-12 flex items-center justify-center bg-gray-100 rounded-md mb-3">
+              <img
+                src={partner.logo}
+                alt={partner.name}
+                className="w-6 h-6 object-contain"
+              />
             </div>
 
             <p className="text-sm font-medium text-gray-800">
