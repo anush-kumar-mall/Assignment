@@ -39,7 +39,8 @@ function AnimatedSection({ children, id }) {
 export default function PremiumCourses() {
   const navigate = useNavigate(); // 🔥 hook for navigation
 
-  const courses = Array(6).fill({
+  const courses = [
+  {
     level: "Intermediate",
     title: "Advanced Google Ads Certification",
     duration: "8 weeks",
@@ -47,12 +48,84 @@ export default function PremiumCourses() {
     students: "8,750 students",
     price: "₹10,000",
     modules: [
-      "Campaign Setup",
-      "Ad Creation",
-      "Keyword Research",
-      "Bidding Strategies",
+      "Live, Interactive Learning",
+      "Real-World Case Studies",
+      "Hands-On Campaign Setup",
+      "Expert-Led Sessions",
     ],
-  });
+  },
+  {
+    level: "Intermediate",
+    title: "Performance Marketing Mastery",
+    duration: "8 weeks",
+    rating: "4.7",
+    students: "6,300 students",
+    price: "₹10,000",
+    modules: [
+      "Google Ads Deep Dive",
+      "Keyword & Audience Research",
+      "Conversion Tracking",
+      "Smart Bidding Strategies",
+    ],
+  },
+  {
+    level: "Intermediate",
+    title: "Paid Ads & Growth Strategy",
+    duration: "8 weeks",
+    rating: "4.8",
+    students: "5,900 students",
+    price: "₹10,000",
+    modules: [
+      "Ad Creative Psychology",
+      "Campaign Optimization",
+      "Scaling Winning Ads",
+      "Growth Frameworks",
+    ],
+  },
+  {
+    level: "Intermediate",
+    title: "Industry-Ready Ads Program",
+    duration: "8 weeks",
+    rating: "4.9",
+    students: "7,100 students",
+    price: "₹10,000",
+    modules: [
+      "Live Project Work",
+      "Brand Case Studies",
+      "Mentorship Sessions",
+      "Certification Prep",
+    ],
+  },
+  {
+    level: "Intermediate",
+    title: "Career-Focused Ads Training",
+    duration: "8 weeks",
+    rating: "4.8",
+    students: "6,850 students",
+    price: "₹10,000",
+    modules: [
+      "Resume-Ready Projects",
+      "Interview Preparation",
+      "Placement Support",
+      "Industry Tools",
+    ],
+  },
+  {
+    level: "Intermediate",
+    title: "Lifetime Ads & Optimization Lab",
+    duration: "8 weeks",
+    rating: "4.9",
+    students: "9,200 students",
+    price: "₹10,000",
+    modules: [
+      "Lifetime Content Access",
+      "Advanced Optimization",
+      "Updated Playbooks",
+      "Community Support",
+    ],
+  },
+];
+
 
   return (
     <AnimatedSection id="courses">

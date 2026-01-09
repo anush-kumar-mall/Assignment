@@ -75,7 +75,7 @@ const Footer = () => {
       <div className="border-t border-slate-800">
         <div className="px-6 lg:px-20 py-4 text-center md:text-left">
           <p className="text-xs text-slate-500">
-            © 2025 Sky Touch Academy. All rights reserved.
+            © 2026 Sky Touch Academy. All rights reserved.
           </p>
         </div>
       </div>

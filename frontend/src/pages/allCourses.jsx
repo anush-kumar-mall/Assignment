@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom"; // ✅ added for navigation
+import { useNavigate } from "react-router-dom";
+import Navbar from "../components/navbar"; // ✅ Navbar import
+import Footer from "../components/footer"; // ✅ Footer import
 import S1 from "../assets/s1.png";
 import S2 from "../assets/s2.png";
 import S3 from "../assets/s3.png";
@@ -20,7 +22,7 @@ const cardIdle = {
 };
 
 export default function PremiumCourses() {
-  const navigate = useNavigate(); // ✅ navigation hook
+  const navigate = useNavigate();
 
   const courses = [
     {
@@ -134,88 +136,97 @@ export default function PremiumCourses() {
   ];
 
   return (
-    <section
-      className="w-full px-4 sm:px-6 lg:px-8 py-16"
-      style={{
-        background: "linear-gradient(180deg, #1D3FFF 0%, #040C82 100%)",
-      }}
-    >
-      <div className="max-w-7xl mx-auto text-center text-white">
-        <h2 className="text-3xl font-bold mb-4">Our Premium Courses</h2>
-        <p className="text-sm max-w-3xl mx-auto mb-12 opacity-90">
-          Industry-designed programs with hands-on projects and career support.
-        </p>
+    <>
+      {/* ✅ Navbar */}
+      <Navbar />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {courses.map((course, index) => (
-            <motion.div
-              key={index}
-              variants={cardIdle}
-              animate="animate"
-              whileHover={{
-                y: -14,
-                scale: 1.03,
-                boxShadow: "0px 25px 50px rgba(0,0,0,0.25)",
-              }}
-              className="bg-white text-gray-800 rounded-2xl overflow-hidden cursor-pointer"
-            >
-              {/* Thumbnail */}
-              <div
-                className="relative h-44 bg-cover bg-center flex items-center justify-center"
-                style={{
-                  backgroundImage: `url(${thumbnails[index % thumbnails.length]})`,
+      {/* ✅ Premium Courses Section */}
+      <section
+        className="w-full px-4 sm:px-6 lg:px-8 py-16 mt-24" // mt-24 for navbar spacing
+        style={{
+          background: "linear-gradient(180deg, #1D3FFF 0%, #040C82 100%)",
+        }}
+      >
+        <div className="max-w-7xl mx-auto text-center text-white">
+          <h2 className="text-3xl font-bold mb-4">Our Premium Courses</h2>
+          <p className="text-sm max-w-3xl mx-auto mb-12 opacity-90">
+            Industry-designed programs with hands-on projects and career support.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {courses.map((course, index) => (
+              <motion.div
+                key={index}
+                variants={cardIdle}
+                animate="animate"
+                whileHover={{
+                  y: -14,
+                  scale: 1.03,
+                  boxShadow: "0px 25px 50px rgba(0,0,0,0.25)",
                 }}
+                className="bg-white text-gray-800 rounded-2xl overflow-hidden cursor-pointer"
               >
-                <div className="absolute inset-0 bg-black/35" />
-                <motion.div
-                  whileHover={{ scale: 1.2, rotate: 10 }}
-                  className="relative z-10 w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-lg"
+                {/* Thumbnail */}
+                <div
+                  className="relative h-44 bg-cover bg-center flex items-center justify-center"
+                  style={{
+                    backgroundImage: `url(${thumbnails[index % thumbnails.length]})`,
+                  }}
                 >
-                  ▶
-                </motion.div>
-              </div>
-
-              {/* Content */}
-              <div className="p-6 text-left">
-                <span className="inline-block text-xs font-semibold text-blue-600 bg-blue-100 px-3 py-1 rounded-full mb-3">
-                  {course.level}
-                </span>
-
-                <h3 className="font-bold text-lg mb-3 leading-snug">{course.title}</h3>
-
-                <div className="flex items-center text-xs text-gray-500 mb-4 gap-3">
-                  <span>⏱ {course.duration}</span>
-                  <span>⭐ {course.rating}</span>
-                  <span>{course.students}</span>
+                  <div className="absolute inset-0 bg-black/35" />
+                  <motion.div
+                    whileHover={{ scale: 1.2, rotate: 10 }}
+                    className="relative z-10 w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-lg"
+                  >
+                    ▶
+                  </motion.div>
                 </div>
 
-                <p className="text-sm font-semibold mb-2">Course Modules:</p>
+                {/* Content */}
+                <div className="p-6 text-left">
+                  <span className="inline-block text-xs font-semibold text-blue-600 bg-blue-100 px-3 py-1 rounded-full mb-3">
+                    {course.level}
+                  </span>
 
-                <ul className="text-xs text-gray-500 mb-5 space-y-1">
-                  {course.modules.map((m, i) => (
-                    <li key={i}>• {m}</li>
-                  ))}
-                </ul>
+                  <h3 className="font-bold text-lg mb-3 leading-snug">{course.title}</h3>
 
-                <span className="block text-xl font-extrabold text-[#1D3FFF] mb-3">
-                  {course.price}
-                </span>
+                  <div className="flex items-center text-xs text-gray-500 mb-4 gap-3">
+                    <span>⏱ {course.duration}</span>
+                    <span>⭐ {course.rating}</span>
+                    <span>{course.students}</span>
+                  </div>
 
-                {/* ✅ Enroll Now with scroll-to-top */}
-                <button
-                  onClick={() => {
-                    navigate("/enroll");
-                    window.scrollTo(0, 0);
-                  }}
-                  className="w-full bg-gradient-to-r from-[#1D3FFF] to-[#040C82] text-white text-sm py-3 rounded-lg hover:opacity-90 transition"
-                >
-                  Enroll Now
-                </button>
-              </div>
-            </motion.div>
-          ))}
+                  <p className="text-sm font-semibold mb-2">Course Modules:</p>
+
+                  <ul className="text-xs text-gray-500 mb-5 space-y-1">
+                    {course.modules.map((m, i) => (
+                      <li key={i}>• {m}</li>
+                    ))}
+                  </ul>
+
+                  <span className="block text-xl font-extrabold text-[#1D3FFF] mb-3">
+                    {course.price}
+                  </span>
+
+                  {/* Enroll Now */}
+                  <button
+                    onClick={() => {
+                      navigate("/enroll");
+                      window.scrollTo(0, 0);
+                    }}
+                    className="w-full bg-gradient-to-r from-[#1D3FFF] to-[#040C82] text-white text-sm py-3 rounded-lg hover:opacity-90 transition"
+                  >
+                    Enroll Now
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* ✅ Footer */}
+      <Footer />
+    </>
   );
 }

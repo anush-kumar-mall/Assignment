@@ -10,7 +10,7 @@ export default function StatsCard() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setStartCount(true);
-          observer.disconnect(); // 🔒 ek hi baar chale
+          observer.disconnect();
         }
       },
       { threshold: 0.3 }
@@ -35,8 +35,9 @@ export default function StatsCard() {
             <h3 className="text-2xl font-bold text-blue-600">
               <CountUp end={95} suffix="%" start={startCount} />
             </h3>
+            <p className="text-sm text-gray-600 mt-2">Placement success</p>
             <p className="text-sm text-gray-600 mt-2">
-              Job Placement Rate
+              Helping learners land roles that match their potential
             </p>
           </div>
 
@@ -44,8 +45,9 @@ export default function StatsCard() {
             <h3 className="text-2xl font-bold text-blue-600">
               <CountUp end={75} prefix="₹" suffix="K" start={startCount} />
             </h3>
+            <p className="text-sm text-gray-600 mt-2">Average salary boost</p>
             <p className="text-sm text-gray-600 mt-2">
-              Average Salary Increase
+              Real growth backed by real results
             </p>
           </div>
 
@@ -53,8 +55,9 @@ export default function StatsCard() {
             <h3 className="text-2xl font-bold text-blue-600">
               <CountUp end={500} suffix="+" start={startCount} />
             </h3>
+            <p className="text-sm text-gray-600 mt-2">Hiring Partners</p>
             <p className="text-sm text-gray-600 mt-2">
-              Hiring Partners
+              Top companies actively recruiting our graduates
             </p>
           </div>
 
@@ -62,8 +65,9 @@ export default function StatsCard() {
             <h3 className="text-2xl font-bold text-blue-600">
               <CountUp end={50} suffix="K+" start={startCount} />
             </h3>
+            <p className="text-sm text-gray-600 mt-2">Successful Alumni</p>
             <p className="text-sm text-gray-600 mt-2">
-              Successful Graduates
+              A growing network of career-ready professionals
             </p>
           </div>
 

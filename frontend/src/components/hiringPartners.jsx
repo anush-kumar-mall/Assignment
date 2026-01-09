@@ -34,8 +34,10 @@ export default function HiringPartners() {
   ];
 
   return (
-    <section ref={ref} className="w-full bg-white px-4 sm:px-6 lg:px-20 py-16">
-      
+    <section
+      ref={ref}
+      className="w-full bg-white px-4 sm:px-6 lg:px-20 py-16"
+    >
       {/* Heading */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -45,15 +47,12 @@ export default function HiringPartners() {
         className="max-w-3xl mx-auto text-center mb-12"
       >
         <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900">
-          Our <span className="text-blue-600">Hiring</span> Partners
+          Our <span className="text-blue-600">Hiring </span> Network
         </h2>
 
         <p className="text-sm sm:text-base text-gray-600 mt-4 leading-relaxed">
-          We've built strong relationships with leading companies who actively
-          <span className="hidden md:inline"><br /></span>
-          recruit our graduates. Get direct access to exclusive job
-          <span className="hidden md:inline"><br /></span>
-          opportunities and fast-track your career growth.
+          We collaborate with leading companies that actively recruit our
+          learners and open doors to real career opportunities.
         </p>
       </motion.div>
 
@@ -67,21 +66,33 @@ export default function HiringPartners() {
             <motion.div
               key={partner.name}
               initial={{ opacity: 0, y: 25, rotate: 0 }}
-              animate={isInView ? {
-                opacity: 1,
-                y: [0, -6, 0, 4, 0],
-                rotate: [0, randomRotate, -randomRotate, randomRotate/2, 0],
-              } : { opacity: 1, y:0, rotate: 0 }}
+              animate={
+                isInView
+                  ? {
+                      opacity: 1,
+                      y: [0, -6, 0, 4, 0],
+                      rotate: [
+                        0,
+                        randomRotate,
+                        -randomRotate,
+                        randomRotate / 2,
+                        0,
+                      ],
+                    }
+                  : { opacity: 1, y: 0, rotate: 0 }
+              }
               transition={{
-                duration: 4 + Math.random()*2,
+                duration: 4 + Math.random() * 2,
                 repeat: isInView ? Infinity : 0,
                 delay: randomDelay,
-                ease: "easeInOut"
+                ease: "easeInOut",
               }}
-              whileHover={{ scale: 1.15, rotate: randomRotate/2 }}
-              className="flex flex-col items-center justify-center bg-gray-50 rounded-lg py-6 cursor-default"
+              whileHover={{ scale: 1.15, rotate: randomRotate / 2 }}
+              className="flex flex-col items-center justify-center
+                         bg-gray-50 rounded-lg py-6 cursor-default"
             >
-              <div className="w-12 h-12 flex items-center justify-center bg-gray-100 rounded-md mb-3">
+              <div className="w-12 h-12 flex items-center justify-center
+                              bg-gray-100 rounded-md mb-3">
                 <img
                   src={partner.logo}
                   alt={partner.name}
@@ -89,13 +100,16 @@ export default function HiringPartners() {
                 />
               </div>
 
-              <p className="text-sm font-medium text-gray-800">{partner.name}</p>
-              <p className="text-xs text-blue-600 mt-1">{partner.openings}</p>
+              <p className="text-sm font-medium text-gray-800">
+                {partner.name}
+              </p>
+              <p className="text-xs text-blue-600 mt-1">
+                {partner.openings}
+              </p>
             </motion.div>
           );
         })}
       </div>
-
     </section>
   );
 }

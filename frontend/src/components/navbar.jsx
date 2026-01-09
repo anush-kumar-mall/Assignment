@@ -1,15 +1,12 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // ✅ import
 import SkyLogo from "../assets/skylogo.png";
 import { HiMenu, HiX } from "react-icons/hi";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate(); // ✅ hook
+  const links = ["Home", "Courses", "Workshops", "About", "Contact Us"];
 
-  const links = ["Home", "Courses", "Workshops", "About", "Contact"];
-
-  // 🔥 BULLETPROOF SCROLL FUNCTION
+  // ✅ SAME SCROLL LOGIC FROM 1st CODE
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
 
@@ -18,8 +15,11 @@ export default function Navbar() {
       return;
     }
 
-    const yOffset = -96; // navbar height offset
-    const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    const yOffset = -96; // navbar height
+    const y =
+      section.getBoundingClientRect().top +
+      window.pageYOffset +
+      yOffset;
 
     window.scrollTo({
       top: y,
@@ -28,41 +28,47 @@ export default function Navbar() {
   };
 
   return (
-    <header className="w-full bg-black text-white fixed top-0 z-50 shadow-md">
-      <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+    <header className="w-full fixed top-0 z-50 bg-black text-white">
+      <div className="w-full px-8 py-4 flex items-center justify-between">
+
         {/* Logo */}
         <div
-          className="flex flex-col items-center gap-1 cursor-pointer -m-2"
-          onClick={() => scrollToSection("home")}
-        >
-          <img src={SkyLogo} alt="Sky Touch Academy logo" className="h-10 w-10 object-contain" />
-          <span className="text-xs font-semibold">Sky Touch Academy</span>
-        </div>
+  className="flex flex-col items-center cursor-pointer -mt-2"
+  onClick={() => scrollToSection("home")}
+>
+  <img
+    src={SkyLogo}
+    alt="Sky Touch Academy"
+    className="h-20 w-15 mb-2"
+  />
+  <span className="text-lg font-medium leading-none -mt-1">
+    Sky Touch Academy
+  </span>
+</div>
 
-        {/* Desktop Menu */}
-        <nav className="hidden md:flex items-center gap-8 text-sm">
+
+        {/* Desktop Links */}
+        <nav className="hidden md:flex items-center gap-16 text-lg font-medium">
+
           {links.map((link) => (
             <button
               key={link}
-              onClick={() => scrollToSection(link.toLowerCase())}
-              className="hover:text-blue-400 transition relative"
+              onClick={() =>
+                scrollToSection(link.toLowerCase().replace(" ", ""))
+              }
+              className="hover:text-blue-400 transition-colors"
             >
               {link}
             </button>
           ))}
         </nav>
 
-        {/* CTA */}
-        <button
-          className="hidden md:block px-5 py-2 rounded-xl text-sm font-medium
-                     bg-gradient-to-r from-blue-500 to-blue-700"
-          onClick={() => {
-            navigate("/enroll");      // ✅ navigate to enroll page
-            window.scrollTo(0, 0);    // ✅ scroll to top
-          }}
-        >
-          Enroll Now
-        </button>
+        {/* Enroll Button (unchanged) */}
+        <div className="hidden md:block">
+          <button className="px-10 py-3 rounded-xl bg-blue-600 text-sm font-semibold">
+            Enroll Now
+          </button>
+        </div>
 
         {/* Mobile Toggle */}
         <div className="md:hidden">
@@ -74,19 +80,26 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-black px-4 py-4 space-y-4">
+        <div className="md:hidden bg-black px-8 py-6 flex flex-col gap-5">
           {links.map((link) => (
             <button
               key={link}
-              className="block w-full text-left"
+              className="text-left text-base hover:text-blue-400"
               onClick={() => {
-                scrollToSection(link.toLowerCase());
+                scrollToSection(link.toLowerCase().replace(" ", ""));
                 setIsOpen(false);
               }}
             >
               {link}
             </button>
           ))}
+
+          <button
+            className="px-10 py-3 rounded-lg bg-blue-600 text-sm font-semibold"
+            onClick={() => setIsOpen(false)}
+          >
+            Enroll Now
+          </button>
         </div>
       )}
     </header>
