@@ -36,7 +36,7 @@ export default function HiringPartners() {
   return (
     <section
       ref={ref}
-      className="w-full bg-white px-4 sm:px-6 lg:px-20 py-16"
+      className="w-full bg-white px-4 sm:px-6 lg:px-20 py-16 font-inter"
     >
       {/* Heading */}
       <motion.div
@@ -91,8 +91,10 @@ export default function HiringPartners() {
               className="flex flex-col items-center justify-center
                          bg-gray-50 rounded-lg py-6 cursor-default"
             >
-              <div className="w-12 h-12 flex items-center justify-center
-                              bg-gray-100 rounded-md mb-3">
+              <div
+                className="w-12 h-12 flex items-center justify-center
+                           bg-gray-100 rounded-md mb-3"
+              >
                 <img
                   src={partner.logo}
                   alt={partner.name}

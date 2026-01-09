@@ -4,7 +4,7 @@ export default function TransformYourCareer() {
       <div
         className="max-w-5xl w-full
                    bg-gradient-to-r from-[#0B78FF] to-[#032B85]
-                   text-white rounded-2xl shadow-lg
+                   text-white rounded-xl shadow-lg
                    px-10 py-12 text-center"
       >
         {/* Heading */}

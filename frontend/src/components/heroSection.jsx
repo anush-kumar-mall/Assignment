@@ -21,11 +21,11 @@ export default function HeroSection() {
           className="absolute top-32 md:top-44
                      right-[-6rem] md:right-[-8rem]
                      bg-gradient-to-r from-[#0A77FF] to-[#012A7C]
-                     text-white rounded-l-2xl shadow-2xl
+                     text-white shadow-2xl
                      px-8 sm:px-10 py-5 sm:py-6"
         >
           <div className="flex items-center gap-4 sm:gap-5 mr-28">
-            {/* LOGO — BIGGER */}
+            {/* LOGO */}
             <img
               src={SkyLogo}
               className="h-16 w-16 sm:h-20 sm:w-20 object-contain"

@@ -64,7 +64,7 @@ export default function AcademyAdvantage() {
   };
 
   return (
-    <section className="w-full px-4 sm:px-6 lg:px-8 py-16 bg-white">
+    <section className="w-full px-4 sm:px-6 lg:px-8 py-16 bg-white font-inter">
       <div className="max-w-7xl mx-auto text-center">
 
         {/* Heading */}
@@ -110,8 +110,7 @@ export default function AcademyAdvantage() {
                   y: -8,
                   boxShadow: "0px 20px 40px rgba(0,0,0,0.12)",
                 }}
-                className="border rounded-xl p-6 text-left bg-white
-                           transition"
+                className="border rounded-xl p-6 text-left bg-white transition"
               >
                 {/* Icon Box */}
                 <motion.div

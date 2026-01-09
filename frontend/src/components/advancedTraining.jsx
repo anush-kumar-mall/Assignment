@@ -2,7 +2,7 @@ import React from "react";
 
 const AdvancedTraining = () => {
   return (
-    <div className="w-full px-4 sm:px-6 lg:px-20 py-12 sm:py-16">
+    <div className="w-full px-4 sm:px-6 lg:px-20 py-12 sm:py-16 font-inter">
       <div
         className="max-w-6xl mx-auto
                    bg-gradient-to-r from-blue-600 to-blue-900

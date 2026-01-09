@@ -61,13 +61,15 @@ export default function BrandPartners() {
   ];
 
   return (
-    <section className="w-full font-inter px-6 py-16 bg-gray-50">
+    <section className="w-full px-6 py-16 bg-gray-50 font-inter">
       
       {/* Heading */}
       <div className="text-center max-w-3xl mx-auto">
-        <h2 className="text-xl font-extrabold">Our Brand Partners</h2>
+        <h2 className="text-xl sm:text-2xl font-extrabold">
+          Our Brand Partners
+        </h2>
 
-        <p className="mt-3 text-sm text-gray-600">
+        <p className="mt-3 text-sm sm:text-base text-gray-600">
           We partner with industry leaders to bring you the most current and relevant
           training. Our certifications are recognized and valued by employers worldwide.
         </p>
@@ -78,7 +80,13 @@ export default function BrandPartners() {
         {partners.map((item, i) => (
           <div
             key={i}
-            className="bg-white rounded-2xl shadow-sm border border-gray-200 px-6 py-5 flex flex-col items-center text-center hover:shadow-md transition"
+            className="
+              bg-white rounded-2xl shadow-sm
+              border border-gray-200
+              px-6 py-5
+              flex flex-col items-center text-center
+              hover:shadow-md transition
+            "
           >
             <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center">
               <img
@@ -88,15 +96,19 @@ export default function BrandPartners() {
               />
             </div>
 
-            <h3 className="mt-3 font-semibold">{item.title}</h3>
-            <p className="text-xs text-gray-500 mt-1">{item.text}</p>
+            <h3 className="mt-3 font-semibold text-sm sm:text-base">
+              {item.title}
+            </h3>
+            <p className="text-xs sm:text-sm text-gray-500 mt-1">
+              {item.text}
+            </p>
           </div>
         ))}
       </div>
 
       {/* Industry Recognition */}
       <div className="mt-14 max-w-5xl mx-auto bg-white rounded-2xl shadow-sm border border-gray-200 px-8 py-8">
-        <h3 className="text-center text-lg font-extrabold">
+        <h3 className="text-center text-lg sm:text-xl font-extrabold">
           Industry Recognition
         </h3>
 
@@ -113,8 +125,12 @@ export default function BrandPartners() {
                 alt={item.title}
                 className="h-10 w-10 mx-auto"
               />
-              <h4 className="font-semibold mt-2">{item.title}</h4>
-              <p className="text-xs text-gray-500 mt-1">{item.text}</p>
+              <h4 className="font-semibold mt-2 text-sm sm:text-base">
+                {item.title}
+              </h4>
+              <p className="text-xs sm:text-sm text-gray-500 mt-1">
+                {item.text}
+              </p>
             </div>
           ))}
         </div>

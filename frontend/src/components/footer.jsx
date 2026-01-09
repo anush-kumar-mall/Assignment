@@ -5,8 +5,9 @@ import SkyLogo from "../assets/skylogo.png";
 const Footer = () => {
   return (
     <footer
-      id="footer" // <- updated to match Navbar scroll
-      className="scroll-mt-24 bg-gradient-to-b from-slate-900 to-slate-950 text-slate-300 w-full"
+      id="footer"
+      className="scroll-mt-24 bg-gradient-to-b from-slate-900 to-slate-950
+                 text-slate-300 w-full font-inter"
     >
       {/* Main Content */}
       <div className="w-full px-6 lg:px-20 py-12">
@@ -26,8 +27,8 @@ const Footer = () => {
             </div>
 
             <p className="text-sm leading-relaxed text-slate-400 max-w-md">
-              Empowering professionals with cutting-edge digital marketing skills. 
-              Join thousands of successful graduates who have transformed their 
+              Empowering professionals with cutting-edge digital marketing skills.
+              Join thousands of successful graduates who have transformed their
               careers with our expert-led programs.
             </p>
 

@@ -26,7 +26,7 @@ export default function StatsBanner() {
   return (
     <div
       ref={bannerRef}
-      className="w-full flex justify-center px-4 sm:px-6 lg:px-8 py-10 sm:py-12"
+      className="w-full flex justify-center px-4 sm:px-6 lg:px-8 py-10 sm:py-12 font-inter"
     >
       <div
         className="w-full max-w-6xl rounded-xl shadow-lg"

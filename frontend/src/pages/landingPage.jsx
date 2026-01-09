@@ -13,7 +13,7 @@ import AdvancedTraining from "../components/advancedTraining";
 import PlacementRate from "../components/placementRateTwo";
 import BrandPartners from "../components/brandPartners";
 import SkyTouch from "../components/academyAdvantage";
-import Career from "../components/transformYourCareer";
+import Career from "../components/nextStep";
 import Galley from "../components/ourGallery";
 import VideoTestimonials from "../components/videoTestimonials";
 import AllCourses from "../pages/allCourses"

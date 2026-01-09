@@ -34,7 +34,10 @@ export default function LearnersAtCompanies() {
   ];
 
   return (
-    <section ref={ref} className="w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-14 lg:py-16">
+    <section
+      ref={ref}
+      className="w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-14 lg:py-16 font-inter" // <- font-inter applied here
+    >
       <div className="max-w-6xl mx-auto text-center">
         {/* Heading */}
         <motion.h2
@@ -62,25 +65,29 @@ export default function LearnersAtCompanies() {
         {/* Logos Grid */}
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-y-8 sm:gap-y-10 gap-x-6">
           {companies.map((company) => {
-            const randomDelay = Math.random() * 0.5; // fade-in jaldi ho
-            const randomRotate = Math.random() * 12 - 6; // -6 to 6 degrees
+            const randomDelay = Math.random() * 0.5;
+            const randomRotate = Math.random() * 12 - 6;
 
             return (
               <motion.div
                 key={company.name}
                 initial={{ opacity: 0, y: 20, rotate: 0 }}
-                animate={isInView ? {
-                  opacity: 1,
-                  y: [0, -4, 0, 3, 0],
-                  rotate: [0, randomRotate, -randomRotate, randomRotate/2, 0],
-                } : { opacity: 1, y:0, rotate: 0 }}
+                animate={
+                  isInView
+                    ? {
+                        opacity: 1,
+                        y: [0, -4, 0, 3, 0],
+                        rotate: [0, randomRotate, -randomRotate, randomRotate / 2, 0],
+                      }
+                    : { opacity: 1, y: 0, rotate: 0 }
+                }
                 transition={{
-                  duration: 2 + Math.random()*1, // cycle faster
+                  duration: 2 + Math.random() * 1,
                   repeat: isInView ? Infinity : 0,
                   delay: randomDelay,
-                  ease: "easeInOut"
+                  ease: "easeInOut",
                 }}
-                whileHover={{ scale: 1.12, rotate: randomRotate/2 }}
+                whileHover={{ scale: 1.12, rotate: randomRotate / 2 }}
                 className="flex flex-col items-center cursor-default"
               >
                 <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center rounded-xl bg-gray-100 shadow-sm">

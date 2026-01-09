@@ -73,7 +73,7 @@ export default function UpcomingWorkshops() {
   return (
     <section
       className="min-h-screen bg-[linear-gradient(135deg,#1D3FFF_0%,#040C82_100%)]
-                 text-white flex flex-col items-center py-16 px-6"
+                 text-white flex flex-col items-center py-16 px-6 font-inter" // <- font-inter applied here
     >
       {/* Heading */}
       <h1 className="text-3xl md:text-4xl font-bold mb-4">
@@ -96,8 +96,8 @@ export default function UpcomingWorkshops() {
               scale: 1.03,
               boxShadow: "0px 25px 50px rgba(0,0,0,0.25)",
             }}
-            className="bg-white text-gray-800 rounded-2xl shadow-xl
-                       flex flex-col overflow-hidden cursor-pointer"
+            className="bg-white text-gray-800 rounded-2xl
+                       flex flex-col overflow-hidden cursor-pointer font-inter" // <- font-inter added
           >
             {/* Thumbnail */}
             <div
@@ -106,13 +106,13 @@ export default function UpcomingWorkshops() {
             >
               <div className="absolute inset-0 bg-black/25" />
               <div className="relative z-10 w-12 h-12 rounded-full bg-white
-                              flex items-center justify-center shadow-lg">
+                              flex items-center justify-center shadow-lg font-inter">
                 ▶
               </div>
             </div>
 
             {/* Content */}
-            <div className="p-6 flex flex-col flex-1">
+            <div className="p-6 flex flex-col flex-1 font-inter"> {/* <- font-inter added */}
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xs font-semibold bg-blue-100 text-blue-600
                                  px-3 py-1 rounded-full">
@@ -146,17 +146,16 @@ export default function UpcomingWorkshops() {
 
               {/* ✅ Enroll Now navigation */}
               <button
-  onClick={() => {
-    navigate("/enroll");  // navigate to enroll page
-    window.scrollTo(0, 0); // scroll to top
-  }}
-  className="mt-auto bg-gradient-to-r from-[#1D3FFF] to-[#040C82]
-             text-white py-2 rounded-lg font-semibold
-             hover:opacity-90 transition"
->
-  Enroll Now
-</button>
-
+                onClick={() => {
+                  navigate("/enroll");  
+                  window.scrollTo(0, 0); 
+                }}
+                className="mt-auto bg-gradient-to-r from-[#1D3FFF] to-[#040C82]
+                           text-white py-2 rounded-lg font-semibold
+                           hover:opacity-90 transition font-inter"
+              >
+                Enroll Now
+              </button>
             </div>
           </motion.div>
         ))}
@@ -164,17 +163,16 @@ export default function UpcomingWorkshops() {
 
       {/* Bottom Button */}
       <button
-  onClick={() => {
-    navigate("/workshops");
-    window.scrollTo(0, 0); // ✅ scroll to top
-  }}
-  className="mt-12 bg-white text-blue-600 font-semibold
-             px-6 py-3 rounded-lg shadow
-             hover:bg-blue-50 transition"
->
-  Browse Our Workshops
-</button>
-
+        onClick={() => {
+          navigate("/workshops");
+          window.scrollTo(0, 0);
+        }}
+        className="mt-12 bg-white text-blue-600 font-semibold
+                   px-6 py-3 rounded-lg shadow
+                   hover:bg-blue-50 transition font-inter"
+      >
+        Browse Our Workshops
+      </button>
     </section>
   );
 }

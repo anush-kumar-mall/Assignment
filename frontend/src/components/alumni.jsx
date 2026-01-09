@@ -34,7 +34,7 @@ export default function Alumni() {
       />
 
       {/* Heading */}
-      <div className="text-center max-w-3xl mx-auto relative z-10">
+      <div className="text-center max-w-3xl mx-auto relative z-10 font-inter">
         <h2 className="text-2xl font-extrabold">
           Our Alumni Leading the{" "}
           <span className="text-blue-600">Digital World</span>
@@ -48,7 +48,7 @@ export default function Alumni() {
       </div>
 
       {/* Cards */}
-      <div className="relative z-10 mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div className="relative z-10 mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto font-inter">
         {alumniData.map((alumni, idx) => (
           <motion.div
             key={alumni.name}
