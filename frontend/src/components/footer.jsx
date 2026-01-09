@@ -4,7 +4,11 @@ import SkyLogo from "../assets/skylogo.png"; // <- import logo
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-b from-slate-900 to-slate-950 text-slate-300 w-full">
+    <footer
+  id="contact"
+  className=" scroll-mt-24 bg-gradient-to-b from-slate-900 to-slate-950 text-slate-300 w-full"
+>
+
       
       {/* Main Content */}
       <div className="w-full px-6 lg:px-20 py-12">

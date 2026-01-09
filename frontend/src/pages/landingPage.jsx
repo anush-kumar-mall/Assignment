@@ -13,54 +13,18 @@ import AdvancedTraining from "../components/advancedTraining";
 import PlacementRate from "../components/placementRateTwo";
 import BrandPartners from "../components/brandPartners";
 import SkyTouch from "../components/academyAdvantage";
-import Testimonials from "../components/testimonials";
 import Career from "../components/transformYourCareer";
 import Galley from "../components/ourGallery";
 import VideoTestimonials from "../components/videoTestimonials";
+import AllCourses from "../pages/allCourses"
 import Footer from "../components/footer";
 
-function LandingPage() {
+//  AnimatedSection wrapper
+function AnimatedSection({ children, id }) {
   return (
-    <div className="overflow-x-hidden">
-      <Navbar />
-
-      {/* Hero / Top Section */}
-      <motion.div
-        variants={fadeUp}
-        initial="hidden"
-        animate="visible"
-        transition={{ duration: 0.6, ease: "easeOut" }}
-      >
-        <Second />
-      </motion.div>
-
-      {/* Scroll based sections */}
-      <AnimatedSection><Alumni /></AnimatedSection>
-      <AnimatedSection><Fourth /></AnimatedSection>
-      <AnimatedSection><Workshops /></AnimatedSection>
-      <AnimatedSection><SkyTouch /></AnimatedSection>
-      <AnimatedSection><Career /></AnimatedSection>
-      <AnimatedSection><Galley /></AnimatedSection>
-      <AnimatedSection><PremiumCourses /></AnimatedSection>
-      <AnimatedSection><LeadingCompanies /></AnimatedSection>
-      <AnimatedSection><PlacementRate /></AnimatedSection>
-      <AnimatedSection><BrandPartners /></AnimatedSection>
-      <AnimatedSection><VideoTestimonials /></AnimatedSection>
-      <AnimatedSection><Testimonials /></AnimatedSection>
-      <AnimatedSection><HiringPartner /></AnimatedSection>
-      <AnimatedSection><AdvancedTraining /></AnimatedSection>
-
-      <Footer />
-    </div>
-  );
-}
-
-export default LandingPage;
-
-/* 🔥 Reusable wrapper */
-function AnimatedSection({ children }) {
-  return (
-    <motion.div
+    <motion.section
+      id={id}
+      className="scroll-mt-24"
       variants={fadeUp}
       initial="hidden"
       whileInView="visible"
@@ -68,6 +32,100 @@ function AnimatedSection({ children }) {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       {children}
-    </motion.div>
+    </motion.section>
+  );
+}
+
+export default function LandingPage() {
+  return (
+    <div className="overflow-x-hidden">
+      <Navbar />
+
+      {/* HOME / HERO */}
+      <AnimatedSection id="home">
+        <Second />
+      </AnimatedSection>
+
+      {/* ALUMNI */}
+      <AnimatedSection id="alumni">
+        <Alumni />
+      </AnimatedSection>
+
+      {/* PLACEMENT RATE ONE */}
+      <AnimatedSection id="placement-one">
+        <Fourth />
+      </AnimatedSection>
+
+      {/* WORKSHOPS */}
+      <AnimatedSection id="workshops">
+        <Workshops />
+      </AnimatedSection>
+
+      {/* SKY TOUCH / ADVANTAGE */}
+      <AnimatedSection id="sky-touch">
+        <SkyTouch />
+      </AnimatedSection>
+
+      {/* CAREER */}
+      <AnimatedSection id="career">
+        <Career />
+      </AnimatedSection>
+
+      {/* GALLERY */}
+      <AnimatedSection id="gallery">
+        <Galley />
+      </AnimatedSection>
+
+      {/* COURSES */}
+      <AnimatedSection id="courses">
+        <PremiumCourses />
+      </AnimatedSection>
+
+      {/* LEADING COMPANIES */}
+      <AnimatedSection id="leading-companies">
+        <LeadingCompanies />
+      </AnimatedSection>
+
+      {/* PLACEMENT RATE TWO */}
+      <AnimatedSection id="placement-two">
+        <PlacementRate />
+      </AnimatedSection>
+
+      {/* BRAND PARTNERS */}
+      <AnimatedSection id="brand-partners">
+        <BrandPartners />
+      </AnimatedSection>
+
+      {/* VIDEO TESTIMONIALS */}
+      <AnimatedSection id="video-testimonials">
+        <VideoTestimonials />
+      </AnimatedSection>
+
+      {/* TESTIMONIALS
+      <AnimatedSection id="testimonials">
+        <Testimonials />
+      </AnimatedSection> */}
+
+      {/* HIRING PARTNERS */}
+      <AnimatedSection id="hiring-partners">
+        <HiringPartner />
+      </AnimatedSection>
+
+      {/* ADVANCED TRAINING */}
+      <AnimatedSection id="advanced-training">
+        <AdvancedTraining />
+      </AnimatedSection>
+
+      <AnimatedSection id="allcourses">
+        <AllCourses />
+      </AnimatedSection>
+
+
+
+      {/* CONTACT */}
+      <AnimatedSection id="contact">
+        <Footer />
+      </AnimatedSection>
+    </div>
   );
 }

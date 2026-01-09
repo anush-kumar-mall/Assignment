@@ -1,53 +1,57 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom"; // ✅ added for navigation
 import S1 from "../assets/s1.png";
 import S2 from "../assets/s2.png";
 import S3 from "../assets/s3.png";
 
 const workshops = [
   {
-    id: 1,
+    id: 4,
     bg: S1,
-    title: "Advanced Google Ads Mastery",
-    date: "March 15, 2026",
-    duration: "3 Hours",
-    instructor: "Ankit Pandey",
-    price: "₹10,000",
-    level: "Advanced",
+    title: "AI Master Class (Upcoming)",
+    date: "To Be Announced",
+    duration: "Coming Soon",
+    instructor: "Industry Experts",
+    price: "Coming Soon",
+    level: "Upcoming",
     learnings: [
-      "Campaign Optimization",
-      "Bidding Strategies",
-      "Performance Analysis",
+      "Generative AI tools & real world applications",
+      "Prompt engineering for business & automation",
+      "AI-driven workflows and productivity hacks",
+      "Practical use cases across industries",
     ],
   },
   {
-    id: 2,
+    id: 5,
     bg: S2,
-    title: "Advanced Google Ads Mastery",
-    date: "March 15, 2026",
-    duration: "3 Hours",
-    instructor: "Ankit Pandey",
-    price: "₹10,000",
-    level: "Advanced",
+    title: "Data Analytics (Upcoming)",
+    date: "To Be Announced",
+    duration: "Coming Soon",
+    instructor: "Industry Experts",
+    price: "Coming Soon",
+    level: "Upcoming",
     learnings: [
-      "Campaign Optimization",
-      "Bidding Strategies",
-      "Performance Analysis",
+      "Data visualization & storytelling",
+      "Excel, SQL & Power BI",
+      "Business intelligence & reporting",
+      "Real-world datasets and case studies",
     ],
   },
   {
-    id: 3,
+    id: 6,
     bg: S3,
-    title: "Advanced Google Ads Mastery",
-    date: "March 15, 2026",
-    duration: "3 Hours",
-    instructor: "Ankit Pandey",
-    price: "₹10,000",
-    level: "Advanced",
+    title: "UI/UX Design Mastery (Upcoming)",
+    date: "To Be Announced",
+    duration: "Coming Soon",
+    instructor: "Industry Experts",
+    price: "Coming Soon",
+    level: "Upcoming",
     learnings: [
-      "Campaign Optimization",
-      "Bidding Strategies",
-      "Performance Analysis",
+      "User research & design thinking",
+      "Wireframing & prototyping (Figma)",
+      "User experience psychology",
+      "Real-world app & website design projects",
     ],
   },
 ];
@@ -64,18 +68,20 @@ const cardIdle = {
 };
 
 export default function UpcomingWorkshops() {
-  return (
-    <section className="min-h-screen bg-[linear-gradient(135deg,#1D3FFF_0%,#040C82_100%)]
-                        text-white flex flex-col items-center py-16 px-6">
+  const navigate = useNavigate(); // ✅ added navigation
 
+  return (
+    <section
+      className="min-h-screen bg-[linear-gradient(135deg,#1D3FFF_0%,#040C82_100%)]
+                 text-white flex flex-col items-center py-16 px-6"
+    >
       {/* Heading */}
       <h1 className="text-3xl md:text-4xl font-bold mb-4">
         Upcoming Workshops
       </h1>
 
       <p className="text-center max-w-2xl text-blue-100 mb-12">
-        Join our intensive workshops led by industry experts. Get hands-on
-        experience with the latest tools and strategies in digital marketing.
+        Real skills. Real mentors. Real career growth.
       </p>
 
       {/* Cards */}
@@ -93,23 +99,16 @@ export default function UpcomingWorkshops() {
             className="bg-white text-gray-800 rounded-2xl shadow-xl
                        flex flex-col overflow-hidden cursor-pointer"
           >
-            {/* Thumbnail with BG IMAGE */}
+            {/* Thumbnail */}
             <div
               className="relative h-40 flex items-center justify-center bg-cover bg-center"
-              style={{
-                backgroundImage: `url(${workshop.bg})`,
-              }}
+              style={{ backgroundImage: `url(${workshop.bg})` }}
             >
-              {/* overlay for readability */}
               <div className="absolute inset-0 bg-black/25" />
-
-              <motion.div
-                whileHover={{ scale: 1.2, rotate: 10 }}
-                className="relative z-10 w-12 h-12 rounded-full bg-white
-                           flex items-center justify-center shadow-lg"
-              >
+              <div className="relative z-10 w-12 h-12 rounded-full bg-white
+                              flex items-center justify-center shadow-lg">
                 ▶
-              </motion.div>
+              </div>
             </div>
 
             {/* Content */}
@@ -145,22 +144,37 @@ export default function UpcomingWorkshops() {
                 </ul>
               </div>
 
-              <button className="mt-auto bg-gradient-to-r from-[#1D3FFF] to-[#040C82]
-                                 text-white py-2 rounded-lg font-semibold
-                                 hover:opacity-90 transition">
-                Enroll Now
-              </button>
+              {/* ✅ Enroll Now navigation */}
+              <button
+  onClick={() => {
+    navigate("/enroll");  // navigate to enroll page
+    window.scrollTo(0, 0); // scroll to top
+  }}
+  className="mt-auto bg-gradient-to-r from-[#1D3FFF] to-[#040C82]
+             text-white py-2 rounded-lg font-semibold
+             hover:opacity-90 transition"
+>
+  Enroll Now
+</button>
+
             </div>
           </motion.div>
         ))}
       </div>
 
       {/* Bottom Button */}
-      <button className="mt-12 bg-white text-blue-600 font-semibold
-                         px-6 py-3 rounded-lg shadow
-                         hover:bg-blue-50 transition">
-        View All Workshops
-      </button>
+      <button
+  onClick={() => {
+    navigate("/workshops");
+    window.scrollTo(0, 0); // ✅ scroll to top
+  }}
+  className="mt-12 bg-white text-blue-600 font-semibold
+             px-6 py-3 rounded-lg shadow
+             hover:bg-blue-50 transition"
+>
+  Browse Our Workshops
+</button>
+
     </section>
   );
 }
