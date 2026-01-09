@@ -116,9 +116,9 @@ export default function LandingPage() {
         <AdvancedTraining />
       </AnimatedSection>
 
-      <AnimatedSection id="allcourses">
+      {/* <AnimatedSection id="allcourses">
         <AllCourses />
-      </AnimatedSection>
+      </AnimatedSection> */}
 
 
 
