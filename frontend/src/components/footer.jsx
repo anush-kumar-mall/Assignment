@@ -1,29 +1,33 @@
 import React from "react";
 import { Facebook, Linkedin, Instagram, Twitter } from "lucide-react";
-import SkyLogo from "../assets/skylogo.png"; // <- import logo
+import SkyLogo from "../assets/skylogo.png";
 
 const Footer = () => {
   return (
     <footer
-  id="contact"
-  className=" scroll-mt-24 bg-gradient-to-b from-slate-900 to-slate-950 text-slate-300 w-full"
->
-
-      
+      id="footer" // <- updated to match Navbar scroll
+      className="scroll-mt-24 bg-gradient-to-b from-slate-900 to-slate-950 text-slate-300 w-full"
+    >
       {/* Main Content */}
       <div className="w-full px-6 lg:px-20 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 text-center md:text-left">
-          
+
           {/* Brand Section */}
           <div className="space-y-4 flex flex-col items-center md:items-start">
-            <div className="flex items-center gap-2"> {/* <- flex-row */}
-              <img src={SkyLogo} alt="Sky Touch Academy Logo" className="h-12 w-15 object-contain" />
-              <span className="text-white font-semibold text-xl">Sky Touch Academy</span>
+            <div className="flex items-center gap-2">
+              <img
+                src={SkyLogo}
+                alt="Sky Touch Academy Logo"
+                className="h-12 w-auto object-contain"
+              />
+              <span className="text-white font-semibold text-xl">
+                Sky Touch Academy
+              </span>
             </div>
 
             <p className="text-sm leading-relaxed text-slate-400 max-w-md">
-              Empowering professionals with cutting-edge digital marketing skills.
-              Join thousands of successful graduates who have transformed their
+              Empowering professionals with cutting-edge digital marketing skills. 
+              Join thousands of successful graduates who have transformed their 
               careers with our expert-led programs.
             </p>
 
@@ -48,23 +52,43 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-semibold mb-5">Quick Links</h4>
             <ul className="space-y-3 text-sm">
-              <li><a href="#" className="hover:text-white transition">Courses</a></li>
-              <li><a href="#" className="hover:text-white transition">Workshops</a></li>
-              <li><a href="#" className="hover:text-white transition">Free Courses</a></li>
-              <li><a href="#" className="hover:text-white transition">About Us</a></li>
-              <li><a href="#" className="hover:text-white transition">Contact</a></li>
+              <li>
+                <a href="#courses" className="hover:text-white transition">Courses</a>
+              </li>
+              <li>
+                <a href="#workshops" className="hover:text-white transition">Workshops</a>
+              </li>
+              <li>
+                <a href="#freecourses" className="hover:text-white transition">Free Courses</a>
+              </li>
+              <li>
+                <a href="#about" className="hover:text-white transition">About Us</a>
+              </li>
+              <li>
+                <a href="#footer" className="hover:text-white transition">Contact</a>
+              </li>
             </ul>
           </div>
 
-          {/* Support */}
+          {/* Support Section */}
           <div>
             <h4 className="text-white font-semibold mb-5">Support</h4>
             <ul className="space-y-3 text-sm">
-              <li><a href="#" className="hover:text-white transition">Help Center</a></li>
-              <li><a href="#" className="hover:text-white transition">Student Portal</a></li>
-              <li><a href="#" className="hover:text-white transition">Career Services</a></li>
-              <li><a href="#" className="hover:text-white transition">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-white transition">Terms of Service</a></li>
+              <li>
+                <a href="#" className="hover:text-white transition">Help Center</a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition">Student Portal</a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition">Career Services</a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition">Terms of Service</a>
+              </li>
             </ul>
           </div>
 

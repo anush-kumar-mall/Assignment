@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { fadeUp } from "../animations";
 
 import Navbar from "../components/navbar";
-import Second from "../components/secondPart";
+import Hero from "../components/heroSection";
 import Alumni from "../components/alumni";
 import Workshops from "../components/upcomingWorkshops";
 import Fourth from "../components/placementRateOne";
@@ -43,7 +43,7 @@ export default function LandingPage() {
 
       {/* HOME / HERO */}
       <AnimatedSection id="home">
-        <Second />
+        <Hero />
       </AnimatedSection>
 
       {/* ALUMNI */}

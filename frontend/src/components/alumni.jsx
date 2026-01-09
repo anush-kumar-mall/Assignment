@@ -20,25 +20,35 @@ const cardVariants = {
 
 export default function Alumni() {
   return (
-    <section className="w-full px-6 py-16 font-inter">
+    <section className="relative w-full px-6 py-20 font-inter overflow-hidden">
+      
+      {/* BACKGROUND STRIP */}
+      <div
+        className="
+          absolute left-0 right-0
+          top-[52%]
+          h-24 sm:h-28 md:h-32
+          bg-gradient-to-r from-[#0A77FF] to-[#012A7C]
+          z-0
+        "
+      />
+
       {/* Heading */}
-      <div className="text-center max-w-3xl mx-auto">
+      <div className="text-center max-w-3xl mx-auto relative z-10">
         <h2 className="text-2xl font-extrabold">
           Our Alumni Leading the{" "}
           <span className="text-blue-600">Digital World</span>
         </h2>
 
-     <p className="mt-3 text-sm font-inter text-black">
-  Join thousands of successful professionals who have transformed their careers with
-  <br />
-  our expert-led programs and are now working at top companies worldwide.
-</p>
-
-
+        <p className="mt-3 text-sm text-black">
+          Join thousands of successful professionals who have transformed their careers with
+          <br />
+          our expert-led programs and are now working at top companies worldwide.
+        </p>
       </div>
 
       {/* Cards */}
-      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div className="relative z-10 mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {alumniData.map((alumni, idx) => (
           <motion.div
             key={alumni.name}
@@ -50,10 +60,15 @@ export default function Alumni() {
             whileHover={{ y: -10 }}
             animate={{ y: [0, -6 - idx * 2, 0] }}
             transition={{ duration: 4 + idx, repeat: Infinity, ease: "easeInOut" }}
-            className="w-[355.86px] h-[500px] rounded-2xl shadow-lg hover:shadow-2xl transition-shadow overflow-hidden flex flex-col bg-white font-inter"
+            className="
+              w-[355.86px] h-[500px]
+              rounded-2xl shadow-lg hover:shadow-2xl
+              transition-shadow overflow-hidden
+              flex flex-col bg-white
+            "
           >
             {/* Image */}
-            <div className="h-[260px] overflow-hidden rounded-b-xl">
+            <div className="h-[260px] overflow-hidden">
               <img
                 src={alumni.image}
                 alt={alumni.name}
