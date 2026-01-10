@@ -9,13 +9,34 @@ const alumniData = [
   { name: "Person Z", company: "Microsoft", role: "Backend Engineer", image: PersonZ },
 ];
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i) => ({
+/* Heading animation */
+const headingVariants = {
+  hidden: { opacity: 0, x: -60 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+};
+
+/* Paragraph animation */
+const textVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.15, duration: 0.6, ease: "easeOut" },
-  }),
+    transition: { delay: 0.3, duration: 0.6 },
+  },
+};
+
+/* Cards animation */
+const cardVariants = {
+  hidden: { opacity: 0, y: 60 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
 };
 
 export default function Alumni() {
@@ -23,53 +44,59 @@ export default function Alumni() {
     <section className="relative w-full px-6 py-20 font-inter overflow-hidden">
 
       {/* BACKGROUND STRIP */}
-      <div
-        className="
-          absolute left-0 right-0
-          top-[52%]
-          h-24 sm:h-28 md:h-32
-          bg-gradient-to-r from-[#0A77FF] to-[#012A7C]
-          z-0
-        "
-      />
+      <div className="
+        absolute left-0 right-0
+        top-[52%]
+        h-24 sm:h-28 md:h-32
+        bg-gradient-to-r from-[#0A77FF] to-[#012A7C]
+        z-0
+      " />
 
-      {/* Heading (UPDATED) */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="text-center max-w-3xl mx-auto relative z-10"
-      >
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3">
+      {/* Heading */}
+      <div className="text-center max-w-3xl mx-auto relative z-10 overflow-hidden">
+        <motion.h2
+          variants={headingVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3"
+        >
           Our Alumni Leading the{" "}
           <span className="text-blue-600">Digital World</span>
-        </h2>
+        </motion.h2>
 
-        <p className="text-sm sm:text-base text-gray-600">
+        <motion.p
+          variants={textVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="text-sm sm:text-base text-gray-600"
+        >
           Join thousands of successful professionals who have transformed their careers
           with our expert-led programs and are now working at top companies worldwide.
-        </p>
-      </motion.div>
+        </motion.p>
+      </div>
 
       {/* Cards */}
-      <div className="relative z-10 mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div className="relative z-10 mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
         {alumniData.map((alumni, idx) => (
           <motion.div
             key={alumni.name}
-            custom={idx}
             variants={cardVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            whileHover={{ y: -10 }}
-            animate={{ y: [0, -6 - idx * 2, 0] }}
-            transition={{ duration: 4 + idx, repeat: Infinity, ease: "easeInOut" }}
+            viewport={{ once: true, amount: 0.2 }}
+            whileHover={{
+              y: -14,
+              transition: { duration: 0.3 },
+            }}
             className="
               w-[355.86px] h-[500px]
-              rounded-2xl shadow-lg hover:shadow-2xl
-              transition-shadow overflow-hidden
-              flex flex-col bg-white
+              rounded-2xl
+              bg-white
+              shadow-md hover:shadow-2xl
+              overflow-hidden
+              transition-shadow
             "
           >
             {/* Image */}
@@ -81,8 +108,13 @@ export default function Alumni() {
               />
             </div>
 
-            {/* Blue Content */}
-            <div className="flex flex-col items-center text-center px-6 py-8 bg-gradient-to-r from-[#0A77FF] to-[#012A7C] text-white flex-1">
+            {/* Content */}
+            <div className="
+              flex flex-col items-center text-center px-6 py-8
+              bg-gradient-to-r from-[#0A77FF] to-[#012A7C]
+              text-white flex-1
+              transition-all duration-300
+            ">
               <p className="text-base font-semibold tracking-wide">
                 {alumni.name}
               </p>

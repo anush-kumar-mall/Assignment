@@ -1,60 +1,97 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 export default function ContactUs() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === "/contactus") {
+      const scrollToTop = () => {
+        const duration = 700; // scroll duration in ms
+        const start = window.pageYOffset;
+        const startTime = performance.now();
+
+        const easeInOutQuad = (t) =>
+          t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; // easing function
+
+        const animate = (currentTime) => {
+          const timeElapsed = currentTime - startTime;
+          const progress = Math.min(timeElapsed / duration, 1);
+          const ease = easeInOutQuad(progress);
+          window.scrollTo(0, start * (1 - ease));
+
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          }
+        };
+
+        requestAnimationFrame(animate);
+      };
+
+      scrollToTop();
+    }
+  }, [location]);
+
   return (
     <>
-      {/* NAVBAR */}
       <Navbar />
 
       <section className="w-full font-inter bg-[#F6F9FF] overflow-hidden pt-24">
+        {/* HERO */}
+        <div className="bg-gradient-to-r from-[#0A77FF] to-[#012A7C] py-24 px-6 text-center text-white">
+          <motion.h1
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl sm:text-4xl lg:text-[48px] font-bold leading-tight"
+          >
+            Let’s <span className="text-black">Talk</span>
+          </motion.h1>
 
-        {/* HERO SECTION */}
-        <div className="bg-gradient-to-r from-[#0A77FF] to-[#012A7C] py-20 px-6 text-center text-white">
-          <h1 className="text-3xl sm:text-4xl lg:text-[48px] font-semibold leading-tight">
-            Contact <span className="text-blue-200">Us</span>
-          </h1>
-
-          <p className="mt-4 text-sm sm:text-base max-w-2xl mx-auto opacity-90">
-            Have questions about our programs or need guidance?
-            Our team is here to help you every step of the way.
-          </p>
+          <motion.p
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-4 text-sm sm:text-base max-w-2xl mx-auto opacity-90"
+          >
+            Questions, doubts, or just exploring your next move?
+            We’re here to help you figure it out.
+          </motion.p>
         </div>
 
-        {/* CONTACT CONTENT */}
+        {/* CONTENT */}
         <div className="max-w-6xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-12">
-
           {/* LEFT INFO */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 26 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="bg-white rounded-2xl shadow-lg p-10"
           >
             <h2 className="text-xl sm:text-2xl font-semibold text-[#012A7C]">
               Get in Touch
             </h2>
-
             <p className="mt-4 text-sm text-gray-600 leading-relaxed">
-              Whether you’re looking to start a new career, upskill,
-              or simply explore your options — we’d love to hear from you.
+              Whether you’re planning a career switch, upskilling for growth,
+              or just need clarity — reach out. A real human will respond.
             </p>
-
-            <div className="mt-8 space-y-5 text-sm">
+            <div className="mt-8 space-y-6 text-sm">
               <div>
                 <p className="font-semibold text-gray-800">📍 Address</p>
                 <p className="text-gray-600">
                   SkyTouch Academy, Tech Park, Bangalore, India
                 </p>
               </div>
-
               <div>
                 <p className="font-semibold text-gray-800">📞 Phone</p>
                 <p className="text-gray-600">+91 98765 43210</p>
               </div>
-
               <div>
                 <p className="font-semibold text-gray-800">✉️ Email</p>
                 <p className="text-gray-600">support@skytouchacademy.com</p>
@@ -64,10 +101,10 @@ export default function ContactUs() {
 
           {/* RIGHT FORM */}
           <motion.form
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 26 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="bg-white rounded-2xl shadow-lg p-10 space-y-6"
           >
             <h2 className="text-xl sm:text-2xl font-semibold text-[#012A7C]">
@@ -114,7 +151,6 @@ export default function ContactUs() {
         </div>
       </section>
 
-      {/* FOOTER */}
       <Footer />
     </>
   );

@@ -15,7 +15,6 @@ export default function Navbar() {
     Courses: "courses",
     Workshops: "workshops",
     About: "footer",
-    "Contact Us": "footer",
   };
 
   const scrollToSection = (id) => {
@@ -32,13 +31,28 @@ export default function Navbar() {
       window.scrollTo({ top: y, behavior: "smooth" });
     };
 
-    // If not on landing page, navigate first
     if (location.pathname !== "/") {
       navigate("/");
-      setTimeout(scroll, 100);
+      setTimeout(scroll, 120);
     } else {
       scroll();
     }
+  };
+
+  const handleNavClick = (link) => {
+    if (link === "Contact Us") {
+      navigate("/contactus");
+      window.scrollTo(0, 0);
+      return;
+    }
+
+    if (link === "Home") {
+      navigate("/");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    scrollToSection(linkToId[link]);
   };
 
   return (
@@ -48,7 +62,10 @@ export default function Navbar() {
         {/* Logo */}
         <div
           className="flex flex-col items-center cursor-pointer -mt-2"
-          onClick={() => scrollToSection("home")}
+          onClick={() => {
+            navigate("/");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
         >
           <img
             src={SkyLogo}
@@ -65,7 +82,7 @@ export default function Navbar() {
           {links.map((link) => (
             <button
               key={link}
-              onClick={() => scrollToSection(linkToId[link])}
+              onClick={() => handleNavClick(link)}
               className="hover:text-blue-400 transition-colors"
             >
               {link}
@@ -102,7 +119,7 @@ export default function Navbar() {
               key={link}
               className="text-left text-base hover:text-blue-400"
               onClick={() => {
-                scrollToSection(linkToId[link]);
+                handleNavClick(link);
                 setIsOpen(false);
               }}
             >
