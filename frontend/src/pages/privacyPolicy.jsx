@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
-
+import Navbar from "../components/navbar";
+import Footer from "../components/footer";
 
 export default function PrivacyPolicy() {
   return (
     <>
-     
+      <Navbar />
 
       <section className="w-full font-inter bg-[#F6F9FF] overflow-hidden pt-24">
         {/* HERO */}
@@ -120,7 +121,7 @@ export default function PrivacyPolicy() {
         </div>
       </section>
 
-      
+      <Footer />
     </>
   );
 }
