@@ -100,7 +100,7 @@ export default function PremiumCourses() {
   return (
     <section
       id="courses"
-      className="scroll-mt-24 w-full px-4 sm:px-6 lg:px-8 py-16 font-inter"
+      className="relative z-50 scroll-mt-24 w-full px-4 sm:px-6 lg:px-8 py-16 font-inter"
       style={{
         background: "linear-gradient(180deg, #1D3FFF 0%, #040C82 100%)",
       }}
@@ -116,13 +116,12 @@ export default function PremiumCourses() {
           {courses.map((course, index) => (
             <div
               key={index}
-              className="bg-white text-gray-800 rounded-2xl overflow-hidden cursor-pointer"
+              className="bg-white text-gray-800 rounded-2xl cursor-pointer"
             >
               <div
                 className="relative h-44 bg-cover bg-center flex items-center justify-center"
                 style={{
                   backgroundImage: `url(${thumbnails[index % thumbnails.length]})`,
-                  backgroundColor: "#ccc",
                 }}
               >
                 <div className="absolute inset-0 bg-black/35" />
@@ -136,7 +135,9 @@ export default function PremiumCourses() {
                   {course.level}
                 </span>
 
-                <h3 className="font-bold text-lg mb-3 leading-snug">{course.title}</h3>
+                <h3 className="font-bold text-lg mb-3 leading-snug">
+                  {course.title}
+                </h3>
 
                 <div className="flex items-center text-xs text-gray-500 mb-4 gap-3 flex-wrap">
                   <span>⏱ {course.duration}</span>
@@ -152,7 +153,9 @@ export default function PremiumCourses() {
                   ))}
                 </ul>
 
-                <span className="block text-xl font-extrabold text-[#1D3FFF] mb-3">{course.price}</span>
+                <span className="block text-xl font-extrabold text-[#1D3FFF] mb-3">
+                  {course.price}
+                </span>
 
                 <button
                   onClick={() => {

@@ -16,10 +16,9 @@ import SkyTouch from "../components/academyAdvantage";
 import Career from "../components/nextStep";
 import Galley from "../components/ourGallery";
 import VideoTestimonials from "../components/videoTestimonials";
-import AllCourses from "../pages/allCourses"
 import Footer from "../components/footer";
 
-//  AnimatedSection wrapper
+// AnimatedSection wrapper
 function AnimatedSection({ children, id }) {
   return (
     <motion.section
@@ -28,7 +27,7 @@ function AnimatedSection({ children, id }) {
       variants={fadeUp}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.25 }}
+      viewport={{ once: true, amount: 0.1 }} // 👈 MOBILE FIX
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       {children}
@@ -76,10 +75,10 @@ export default function LandingPage() {
         <Galley />
       </AnimatedSection>
 
-      {/* COURSES */}
-      <AnimatedSection id="courses">
+      {/* COURSES (NO ANIMATION WRAPPER) */}
+      <section id="courses" className="scroll-mt-24">
         <PremiumCourses />
-      </AnimatedSection>
+      </section>
 
       {/* LEADING COMPANIES */}
       <AnimatedSection id="leading-companies">
@@ -101,11 +100,6 @@ export default function LandingPage() {
         <VideoTestimonials />
       </AnimatedSection>
 
-      {/* TESTIMONIALS
-      <AnimatedSection id="testimonials">
-        <Testimonials />
-      </AnimatedSection> */}
-
       {/* HIRING PARTNERS */}
       <AnimatedSection id="hiring-partners">
         <HiringPartner />
@@ -115,12 +109,6 @@ export default function LandingPage() {
       <AnimatedSection id="advanced-training">
         <AdvancedTraining />
       </AnimatedSection>
-
-      {/* <AnimatedSection id="allcourses">
-        <AllCourses />
-      </AnimatedSection> */}
-
-
 
       {/* CONTACT */}
       <AnimatedSection id="contact">
