@@ -63,7 +63,7 @@ export default function BrandPartners() {
   ];
 
   return (
-    <section className="w-full px-6 py-20 bg-gray-50 font-inter">
+    <section className="w-full px-4 sm:px-6 lg:px-8 py-20 bg-gray-50 font-inter">
       <div className="max-w-7xl mx-auto">
 
         {/* Heading */}
@@ -85,7 +85,7 @@ export default function BrandPartners() {
         </motion.div>
 
         {/* Partner Cards */}
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {partners.map((item, i) => (
             <motion.div
               key={i}
@@ -131,7 +131,7 @@ export default function BrandPartners() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="
-            mt-16 max-w-5xl mx-auto
+            mt-16
             bg-white rounded-2xl
             border border-gray-200
             px-8 py-10

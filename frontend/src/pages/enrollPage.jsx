@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import Navbar from "../components/navbar"; // ✅ Navbar import
-import Footer from "../components/footer"; // ✅ Footer import
+import { useState } from "react";
+import { motion } from "framer-motion";
+import Navbar from "../components/navbar";
+import Footer from "../components/footer";
 
 export default function EnrollPage() {
   const [formData, setFormData] = useState({
@@ -24,162 +25,154 @@ export default function EnrollPage() {
 
   return (
     <>
-      {/* ✅ Navbar */}
       <Navbar />
 
-      {/* ✅ Enroll Form Section */}
-      <section
-        className="w-full min-h-screen flex items-center justify-center px-4
-                   bg-[linear-gradient(135deg,#1D3FFF_0%,#040C82_100%)] mt-24"
-      >
-        <div className="w-full max-w-2xl bg-white rounded-2xl shadow-2xl p-8 md:p-10">
-          
-          {/* Header */}
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-black">Enroll Now</h2>
-            <p className="text-sm text-gray-600 mt-2">
-              Fill in the details below to reserve your seat
-            </p>
-          </div>
+      <section className="w-full font-inter bg-[#F6F9FF] overflow-hidden pt-24">
+        {/* HERO */}
+        <div className="bg-gradient-to-r from-[#0A77FF] to-[#012A7C] py-24 px-6 text-center text-white">
+          <motion.h1
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl sm:text-4xl lg:text-[48px] font-bold"
+          >
+            Enroll <span className="text-black">Now</span>
+          </motion.h1>
 
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-6">
-            
-            {/* Name */}
-            <div>
-              <label className="block text-sm font-semibold text-black mb-1">
-                Full Name
-              </label>
+          <motion.p
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-4 text-sm sm:text-base max-w-2xl mx-auto opacity-90"
+          >
+            Take the next step toward your growth. Reserve your seat today.
+          </motion.p>
+        </div>
+
+        {/* CONTENT */}
+        <div className="max-w-6xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-12">
+          {/* LEFT INFO */}
+          <motion.div
+            initial={{ opacity: 0, y: 26 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-white rounded-2xl shadow-lg p-10"
+          >
+            <h2 className="text-xl sm:text-2xl font-semibold text-[#012A7C]">
+              Why Enroll With Us?
+            </h2>
+
+            <ul className="mt-6 space-y-4 text-sm text-gray-600">
+              <li>✔ Industry-focused practical training</li>
+              <li>✔ Real-world projects & live sessions</li>
+              <li>✔ Expert mentors & career guidance</li>
+              <li>✔ Certification & placement support</li>
+            </ul>
+
+            <div className="mt-8 text-sm">
+              <p className="font-semibold text-gray-800">📍 Location</p>
+              <p className="text-gray-600">Bangalore, India</p>
+            </div>
+          </motion.div>
+
+          {/* RIGHT FORM */}
+          <motion.form
+            onSubmit={handleSubmit}
+            initial={{ opacity: 0, y: 26 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="bg-white rounded-2xl shadow-lg p-10 space-y-6"
+          >
+            <h2 className="text-xl sm:text-2xl font-semibold text-[#012A7C]">
+              Enrollment Form
+            </h2>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <input
                 type="text"
                 name="name"
+                placeholder="Full Name"
                 required
-                placeholder="Your full name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-lg px-4 py-3
-                           text-black placeholder-gray-400
-                           focus:outline-none focus:ring-2 focus:ring-[#1D3FFF]"
+                className="border rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500"
               />
-            </div>
 
-            {/* Email */}
-            <div>
-              <label className="block text-sm font-semibold text-black mb-1">
-                Email Address
-              </label>
               <input
                 type="email"
                 name="email"
+                placeholder="Email Address"
                 required
-                placeholder="you@example.com"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-lg px-4 py-3
-                           text-black placeholder-gray-400
-                           focus:outline-none focus:ring-2 focus:ring-[#1D3FFF]"
+                className="border rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500"
               />
             </div>
 
-            {/* Phone */}
-            <div>
-              <label className="block text-sm font-semibold text-black mb-1">
-                Phone Number
-              </label>
-              <input
-                type="tel"
-                name="phone"
-                required
-                placeholder="+91 98765 43210"
-                value={formData.phone}
-                onChange={handleChange}
-                className="w-full border border-gray-300 rounded-lg px-4 py-3
-                           text-black placeholder-gray-400
-                           focus:outline-none focus:ring-2 focus:ring-[#1D3FFF]"
-              />
-            </div>
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone Number"
+              required
+              value={formData.phone}
+              onChange={handleChange}
+              className="border rounded-lg px-4 py-3 text-sm w-full focus:ring-2 focus:ring-blue-500"
+            />
 
-            {/* Course */}
-            <div>
-              <label className="block text-sm font-semibold text-black mb-1">
-                Select Course / Workshop
-              </label>
-              <select
-                name="course"
-                required
-                value={formData.course}
-                onChange={handleChange}
-                className="w-full border border-gray-300 rounded-lg px-4 py-3
-                           text-black
-                           focus:outline-none focus:ring-2 focus:ring-[#1D3FFF]"
-              >
-                <option value="">Choose an option</option>
-                <option>Advanced Google Ads Mastery</option>
-                <option>Meta Ads Scaling Workshop</option>
-                <option>SEO Growth Bootcamp</option>
-                <option>YouTube Ads Masterclass</option>
-                <option>Email Marketing Automation</option>
-                <option>E-commerce Growth Workshop</option>
-              </select>
-            </div>
+            <select
+              name="course"
+              required
+              value={formData.course}
+              onChange={handleChange}
+              className="border rounded-lg px-4 py-3 text-sm w-full focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="">Select Course</option>
+              <option>Advanced Google Ads Mastery</option>
+              <option>Meta Ads Scaling Workshop</option>
+              <option>SEO Growth Bootcamp</option>
+              <option>YouTube Ads Masterclass</option>
+              <option>Email Marketing Automation</option>
+            </select>
 
-            {/* Experience */}
-            <div>
-              <label className="block text-sm font-semibold text-black mb-1">
-                Experience Level
-              </label>
-              <select
-                name="experience"
-                required
-                value={formData.experience}
-                onChange={handleChange}
-                className="w-full border border-gray-300 rounded-lg px-4 py-3
-                           text-black
-                           focus:outline-none focus:ring-2 focus:ring-[#1D3FFF]"
-              >
-                <option value="">Select level</option>
-                <option>Beginner</option>
-                <option>Intermediate</option>
-                <option>Advanced</option>
-              </select>
-            </div>
+            <select
+              name="experience"
+              required
+              value={formData.experience}
+              onChange={handleChange}
+              className="border rounded-lg px-4 py-3 text-sm w-full focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="">Experience Level</option>
+              <option>Beginner</option>
+              <option>Intermediate</option>
+              <option>Advanced</option>
+            </select>
 
-            {/* Message */}
-            <div>
-              <label className="block text-sm font-semibold text-black mb-1">
-                Message (Optional)
-              </label>
-              <textarea
-                name="message"
-                rows="4"
-                placeholder="Any specific goals or questions?"
-                value={formData.message}
-                onChange={handleChange}
-                className="w-full border border-gray-300 rounded-lg px-4 py-3
-                           text-black placeholder-gray-400
-                           focus:outline-none focus:ring-2 focus:ring-[#1D3FFF]"
-              />
-            </div>
+            <textarea
+              name="message"
+              rows="4"
+              placeholder="Any specific goals or questions?"
+              value={formData.message}
+              onChange={handleChange}
+              className="border rounded-lg px-4 py-3 text-sm w-full resize-none focus:ring-2 focus:ring-blue-500"
+            />
 
-            {/* Submit */}
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-[#1D3FFF] to-[#040C82]
-                         text-white font-semibold py-3 rounded-lg
+              className="w-full py-3 rounded-lg
+                         bg-gradient-to-r from-[#0A77FF] to-[#012A7C]
+                         text-white font-semibold text-sm
                          hover:opacity-90 transition"
             >
               Confirm Enrollment
             </button>
-          </form>
-
-          {/* Footer Note */}
-          <p className="text-xs text-center text-gray-500 mt-6">
-            By enrolling, you agree to our Terms & Privacy Policy
-          </p>
+          </motion.form>
         </div>
       </section>
 
-      {/* ✅ Footer */}
       <Footer />
     </>
   );

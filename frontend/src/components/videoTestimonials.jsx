@@ -10,7 +10,7 @@ export default function VideoTestimonials() {
   return (
     <section
       className="
-        w-full px-6 py-20 font-inter
+        w-full px-4 sm:px-6 lg:px-8 py-20 font-inter
         bg-gradient-to-r from-[#0B78FF] to-[#032B85]
       "
     >
@@ -39,7 +39,7 @@ export default function VideoTestimonials() {
         <div
           className="
             mt-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4
-            gap-8 max-w-6xl mx-auto
+            gap-8
           "
         >
           {videos.map((img, idx) => (

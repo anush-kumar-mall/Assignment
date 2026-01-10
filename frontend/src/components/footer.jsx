@@ -1,8 +1,42 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; // ✅ Add this
 import { Facebook, Linkedin, Instagram, Twitter } from "lucide-react";
 import SkyLogo from "../assets/skylogo.png";
 
 const Footer = () => {
+  const navigate = useNavigate(); // ✅ Initialize navigate
+
+  // Smooth scroll function
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (!section) return;
+
+    const yOffset = -96; // header height offset
+    const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
+
+  // ✅ Central handler for Quick Links
+  const handleNavClick = (link) => {
+    if (link === "Contact Us") {
+      navigate("/contactus");
+      window.scrollTo(0, 0);
+      return;
+    }
+
+    // Convert link to corresponding id
+    const idMap = {
+      Courses: "courses",
+      Workshops: "workshops",
+      "Free Courses": "freecourses",
+      "About Us": "about",
+    };
+
+    const targetId = idMap[link];
+    if (targetId) scrollToSection(targetId);
+  };
+
   return (
     <footer
       id="footer"
@@ -53,21 +87,18 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-semibold mb-5">Quick Links</h4>
             <ul className="space-y-3 text-sm">
-              <li>
-                <a href="#courses" className="hover:text-white transition">Courses</a>
-              </li>
-              <li>
-                <a href="#workshops" className="hover:text-white transition">Workshops</a>
-              </li>
-              <li>
-                <a href="#freecourses" className="hover:text-white transition">Free Courses</a>
-              </li>
-              <li>
-                <a href="#about" className="hover:text-white transition">About Us</a>
-              </li>
-              <li>
-                <a href="#footer" className="hover:text-white transition">Contact</a>
-              </li>
+              {["Courses", "Workshops", "Free Courses", "About Us", "Contact Us"].map(
+                (link) => (
+                  <li key={link}>
+                    <button
+                      onClick={() => handleNavClick(link)}
+                      className="hover:text-white transition"
+                    >
+                      {link}
+                    </button>
+                  </li>
+                )
+              )}
             </ul>
           </div>
 

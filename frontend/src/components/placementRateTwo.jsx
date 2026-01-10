@@ -24,12 +24,12 @@ export default function StatsBanner() {
   }, []);
 
   return (
-    <div
+    <section
       ref={bannerRef}
-      className="w-full flex justify-center px-4 sm:px-6 lg:px-8 py-10 sm:py-12 font-inter"
+      className="w-full px-4 sm:px-6 lg:px-8 py-16 font-inter"
     >
       <div
-        className="w-full max-w-6xl rounded-xl shadow-lg"
+        className="max-w-7xl mx-auto rounded-xl shadow-lg"
         style={{
           background: "linear-gradient(90deg, #0064E7 0%, #02287B 100%)",
         }}
@@ -37,7 +37,7 @@ export default function StatsBanner() {
         <div className="grid grid-cols-1 sm:grid-cols-3 text-center text-white">
 
           {/* Placement Success */}
-          <div className="px-4 py-10 sm:py-12 lg:py-14">
+          <div className="px-6 py-10 sm:py-12 lg:py-14">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3">
               <CountUp end={95} suffix="+" start={startCount} />
             </h2>
@@ -50,7 +50,7 @@ export default function StatsBanner() {
           </div>
 
           {/* Average Salary */}
-          <div className="px-4 py-10 sm:py-12 lg:py-14">
+          <div className="px-6 py-10 sm:py-12 lg:py-14">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3">
               ₹<CountUp end={75} suffix="K+" start={startCount} />
             </h2>
@@ -63,7 +63,7 @@ export default function StatsBanner() {
           </div>
 
           {/* Hiring Partners */}
-          <div className="px-4 py-10 sm:py-12 lg:py-14">
+          <div className="px-6 py-10 sm:py-12 lg:py-14">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3">
               <CountUp end={50000} suffix="+" start={startCount} />
             </h2>
@@ -77,6 +77,6 @@ export default function StatsBanner() {
 
         </div>
       </div>
-    </div>
+    </section>
   );
 }

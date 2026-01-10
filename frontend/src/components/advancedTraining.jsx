@@ -2,14 +2,16 @@ import React from "react";
 
 const AdvancedTraining = () => {
   return (
-    <div className="w-full px-4 sm:px-6 lg:px-20 py-12 sm:py-16 font-inter">
+    <section className="w-full px-4 sm:px-6 lg:px-8 py-16 font-inter">
       <div
-        className="max-w-6xl mx-auto
-                   bg-gradient-to-r from-blue-600 to-blue-900
-                   rounded-xl shadow-lg
-                   px-5 sm:px-8 md:px-12
-                   py-10 sm:py-12
-                   text-center text-white"
+        className="
+          max-w-7xl mx-auto
+          bg-gradient-to-r from-blue-600 to-blue-900
+          rounded-xl shadow-lg
+          px-6 sm:px-10 lg:px-14
+          py-10 sm:py-12
+          text-center text-white
+        "
       >
         {/* Heading */}
         <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-4">
@@ -34,7 +36,7 @@ const AdvancedTraining = () => {
           </button>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

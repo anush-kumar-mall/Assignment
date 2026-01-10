@@ -26,51 +26,53 @@ export default function StatsCard() {
   return (
     <section
       ref={sectionRef}
-      className="w-full flex justify-center font-inter px-6 py-12"
+      className="w-full px-4 sm:px-6 lg:px-8 py-16 font-inter bg-white"
     >
-      <div className="max-w-6xl w-full bg-white border border-gray-300 rounded-2xl shadow-md px-12 py-10">
-        <div className="grid grid-cols-2 sm:grid-cols-4 text-center gap-10">
+      <div className="max-w-7xl mx-auto">
+        <div className="bg-white border border-gray-300 rounded-2xl shadow-md px-8 sm:px-10 lg:px-12 py-10">
+          <div className="grid grid-cols-2 sm:grid-cols-4 text-center gap-10">
 
-          <div>
-            <h3 className="text-2xl font-bold text-blue-600">
-              <CountUp end={95} suffix="%" start={startCount} />
-            </h3>
-            <p className="text-sm text-gray-600 mt-2">Placement success</p>
-            <p className="text-sm text-gray-600 mt-2">
-              Helping learners land roles that match their potential
-            </p>
+            <div>
+              <h3 className="text-2xl font-bold text-blue-600">
+                <CountUp end={95} suffix="%" start={startCount} />
+              </h3>
+              <p className="text-sm text-gray-600 mt-2">Placement success</p>
+              <p className="text-sm text-gray-600 mt-2">
+                Helping learners land roles that match their potential
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-blue-600">
+                <CountUp end={75} prefix="₹" suffix="K" start={startCount} />
+              </h3>
+              <p className="text-sm text-gray-600 mt-2">Average salary boost</p>
+              <p className="text-sm text-gray-600 mt-2">
+                Real growth backed by real results
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-blue-600">
+                <CountUp end={500} suffix="+" start={startCount} />
+              </h3>
+              <p className="text-sm text-gray-600 mt-2">Hiring Partners</p>
+              <p className="text-sm text-gray-600 mt-2">
+                Top companies actively recruiting our graduates
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-blue-600">
+                <CountUp end={50} suffix="K+" start={startCount} />
+              </h3>
+              <p className="text-sm text-gray-600 mt-2">Successful Alumni</p>
+              <p className="text-sm text-gray-600 mt-2">
+                A growing network of career-ready professionals
+              </p>
+            </div>
+
           </div>
-
-          <div>
-            <h3 className="text-2xl font-bold text-blue-600">
-              <CountUp end={75} prefix="₹" suffix="K" start={startCount} />
-            </h3>
-            <p className="text-sm text-gray-600 mt-2">Average salary boost</p>
-            <p className="text-sm text-gray-600 mt-2">
-              Real growth backed by real results
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-2xl font-bold text-blue-600">
-              <CountUp end={500} suffix="+" start={startCount} />
-            </h3>
-            <p className="text-sm text-gray-600 mt-2">Hiring Partners</p>
-            <p className="text-sm text-gray-600 mt-2">
-              Top companies actively recruiting our graduates
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-2xl font-bold text-blue-600">
-              <CountUp end={50} suffix="K+" start={startCount} />
-            </h3>
-            <p className="text-sm text-gray-600 mt-2">Successful Alumni</p>
-            <p className="text-sm text-gray-600 mt-2">
-              A growing network of career-ready professionals
-            </p>
-          </div>
-
         </div>
       </div>
     </section>

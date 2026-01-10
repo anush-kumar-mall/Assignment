@@ -1,11 +1,11 @@
 export default function TransformYourCareer() {
   return (
-    <div className="w-full flex justify-center px-4 sm:px-6 lg:px-8 py-10 sm:py-12 font-inter">
+    <section className="w-full px-4 sm:px-6 lg:px-8 py-16 font-inter">
       <div
-        className="w-full max-w-6xl rounded-xl shadow-lg
+        className="max-w-7xl mx-auto rounded-xl shadow-lg
                    bg-gradient-to-r from-[#0B78FF] to-[#032B85]
                    text-white text-center
-                   px-6 sm:px-10 py-12 sm:py-14"
+                   px-6 sm:px-10 lg:px-14 py-12 sm:py-14"
       >
         {/* Heading */}
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold">
@@ -39,6 +39,6 @@ export default function TransformYourCareer() {
           </button>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
