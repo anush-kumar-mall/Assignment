@@ -1,4 +1,4 @@
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import S1 from "../assets/s1.png";
 import S2 from "../assets/s2.png";
@@ -7,7 +7,6 @@ import S4 from "../assets/s4.png";
 
 const thumbnails = [S1, S2, S3, S4];
 
-// Simpler animation compatible with mobile
 const cardIdle = {
   animate: {
     y: -6,
@@ -19,20 +18,23 @@ const cardIdle = {
   },
 };
 
-// Section variants for framer-motion
 const sectionVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0 },
 };
 
 function AnimatedSection({ children, id }) {
+  // Check if device is mobile
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
+
   return (
     <motion.section
       id={id}
       className="scroll-mt-24 w-full px-4 sm:px-6 lg:px-8 py-16 font-inter"
       variants={sectionVariants}
       initial="hidden"
-      whileInView="visible"
+      animate={isMobile ? "visible" : undefined} // mobile always visible
+      whileInView={isMobile ? undefined : "visible"}
       viewport={{ once: true, amount: 0.25 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       style={{
@@ -137,9 +139,7 @@ export default function PremiumCourses() {
   return (
     <AnimatedSection id="courses">
       <div className="max-w-7xl mx-auto text-center text-white">
-        <h2 className="text-3xl font-bold mb-4">
-          Our Premium Courses
-        </h2>
+        <h2 className="text-3xl font-bold mb-4">Our Premium Courses</h2>
 
         <p className="text-sm max-w-3xl mx-auto mb-12 opacity-90">
           Industry-designed programs with hands-on projects and career support.
@@ -151,18 +151,14 @@ export default function PremiumCourses() {
               key={index}
               variants={cardIdle}
               animate="animate"
-              whileHover={{
-                y: -14,
-                scale: 1.03,
-                boxShadow: "0px 25px 50px rgba(0,0,0,0.25)",
-              }}
+              whileHover={{ y: -14, scale: 1.03, boxShadow: "0px 25px 50px rgba(0,0,0,0.25)" }}
               className="bg-white text-gray-800 rounded-2xl overflow-hidden cursor-pointer"
             >
               <div
                 className="relative h-44 bg-cover bg-center flex items-center justify-center"
                 style={{
                   backgroundImage: `url(${thumbnails[index % thumbnails.length]})`,
-                  backgroundColor: "#ccc", // fallback for mobile
+                  backgroundColor: "#ccc",
                 }}
               >
                 <div className="absolute inset-0 bg-black/35" />
@@ -179,9 +175,7 @@ export default function PremiumCourses() {
                   {course.level}
                 </span>
 
-                <h3 className="font-bold text-lg mb-3 leading-snug">
-                  {course.title}
-                </h3>
+                <h3 className="font-bold text-lg mb-3 leading-snug">{course.title}</h3>
 
                 <div className="flex items-center text-xs text-gray-500 mb-4 gap-3 flex-wrap">
                   <span>⏱ {course.duration}</span>
@@ -189,9 +183,7 @@ export default function PremiumCourses() {
                   <span>{course.students}</span>
                 </div>
 
-                <p className="text-sm font-semibold mb-2">
-                  Course Modules:
-                </p>
+                <p className="text-sm font-semibold mb-2">Course Modules:</p>
 
                 <ul className="text-xs text-gray-500 mb-5 space-y-1">
                   {course.modules.map((m, i) => (
@@ -199,18 +191,14 @@ export default function PremiumCourses() {
                   ))}
                 </ul>
 
-                <span className="block text-xl font-extrabold text-[#1D3FFF] mb-3">
-                  {course.price}
-                </span>
+                <span className="block text-xl font-extrabold text-[#1D3FFF] mb-3">{course.price}</span>
 
                 <button
                   onClick={() => {
                     navigate("/enroll");
                     window.scrollTo(0, 0);
                   }}
-                  className="w-full bg-gradient-to-r from-[#1D3FFF] to-[#040C82]
-                             text-white text-sm py-3 rounded-lg
-                             hover:opacity-90 transition"
+                  className="w-full bg-gradient-to-r from-[#1D3FFF] to-[#040C82] text-white text-sm py-3 rounded-lg hover:opacity-90 transition"
                 >
                   Enroll Now
                 </button>
@@ -225,8 +213,7 @@ export default function PremiumCourses() {
               navigate("/courses");
               window.scrollTo(0, 0);
             }}
-            className="border border-white px-6 py-3 rounded-lg text-sm
-                       hover:bg-white hover:text-blue-700 transition"
+            className="border border-white px-6 py-3 rounded-lg text-sm hover:bg-white hover:text-blue-700 transition"
           >
             Explore All Courses
           </button>
