@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
-import { fadeUp } from "../animations";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { LazyMotion, domAnimation } from "framer-motion";
 
 import Navbar from "../components/navbar";
 import Hero from "../components/heroSection";
@@ -18,102 +19,79 @@ import Galley from "../components/ourGallery";
 import VideoTestimonials from "../components/videoTestimonials";
 import Footer from "../components/footer";
 
-// AnimatedSection wrapper
-function AnimatedSection({ children, id }) {
-  return (
-    <motion.section
-      id={id}
-      className="scroll-mt-24"
-      variants={fadeUp}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.1 }} // 👈 MOBILE FIX
-      transition={{ duration: 0.6, ease: "easeOut" }}
-    >
-      {children}
-    </motion.section>
-  );
-}
+import AnimatedSection from "../utils/AnimatedSection";
 
 export default function LandingPage() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const id = location.state?.scrollTo;
+
+    if (!id) return;
+
+    if (id === "top") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    const section = document.getElementById(id);
+    if (!section) return;
+
+    const yOffset = -96;
+    const y =
+      section.getBoundingClientRect().top +
+      window.pageYOffset +
+      yOffset;
+
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }, [location]);
+
   return (
-    <div className="overflow-x-hidden">
-      <Navbar />
+    <LazyMotion features={domAnimation}>
+      <div className="overflow-x-hidden">
+        <Navbar />
 
-      {/* HOME / HERO */}
-      <AnimatedSection id="home">
         <Hero />
-      </AnimatedSection>
 
-      {/* ALUMNI */}
-      <AnimatedSection id="alumni">
-        <Alumni />
-      </AnimatedSection>
+        <AnimatedSection id="alumni">
+          <Alumni />
+        </AnimatedSection>
 
-      {/* PLACEMENT RATE ONE */}
-      <AnimatedSection id="placement-one">
         <Fourth />
-      </AnimatedSection>
 
-      {/* WORKSHOPS */}
-      <AnimatedSection id="workshops">
-        <Workshops />
-      </AnimatedSection>
+        <AnimatedSection id="workshops">
+          <Workshops />
+        </AnimatedSection>
 
-      {/* SKY TOUCH / ADVANTAGE */}
-      <AnimatedSection id="sky-touch">
         <SkyTouch />
-      </AnimatedSection>
-
-      {/* CAREER */}
-      <AnimatedSection id="career">
         <Career />
-      </AnimatedSection>
 
-      {/* GALLERY */}
-      <AnimatedSection id="gallery">
-        <Galley />
-      </AnimatedSection>
+        <AnimatedSection id="gallery">
+          <Galley />
+        </AnimatedSection>
 
-      {/* COURSES (NO ANIMATION WRAPPER) */}
-      <section id="courses" className="scroll-mt-24">
-        <PremiumCourses />
-      </section>
+        <section id="courses" className="scroll-mt-24">
+          <PremiumCourses />
+        </section>
 
-      {/* LEADING COMPANIES */}
-      <AnimatedSection id="leading-companies">
         <LeadingCompanies />
-      </AnimatedSection>
-
-      {/* PLACEMENT RATE TWO */}
-      <AnimatedSection id="placement-two">
         <PlacementRate />
-      </AnimatedSection>
-
-      {/* BRAND PARTNERS */}
-      <AnimatedSection id="brand-partners">
         <BrandPartners />
-      </AnimatedSection>
 
-      {/* VIDEO TESTIMONIALS */}
-      <AnimatedSection id="video-testimonials">
-        <VideoTestimonials />
-      </AnimatedSection>
+        <AnimatedSection id="video-testimonials">
+          <VideoTestimonials />
+        </AnimatedSection>
 
-      {/* HIRING PARTNERS */}
-      <AnimatedSection id="hiring-partners">
-        <HiringPartner />
-      </AnimatedSection>
+        <AnimatedSection id="hiring-partners">
+          <HiringPartner />
+        </AnimatedSection>
 
-      {/* ADVANCED TRAINING */}
-      <AnimatedSection id="advanced-training">
         <AdvancedTraining />
-      </AnimatedSection>
 
-      {/* CONTACT */}
-      <AnimatedSection id="contact">
-        <Footer />
-      </AnimatedSection>
-    </div>
+        <AnimatedSection id="contact">
+          <Footer />
+        </AnimatedSection>
+      </div>
+    </LazyMotion>
   );
 }
