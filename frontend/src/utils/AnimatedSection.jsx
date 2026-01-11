@@ -9,8 +9,10 @@ export default function AnimatedSection({ children, id }) {
       variants={fadeUp}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.35, ease: "easeOut" }}
+      viewport={{
+        once: true,
+        margin: "-120px",   // 👈 trigger earlier, less recalculation
+      }}
     >
       {children}
     </motion.section>
