@@ -36,7 +36,7 @@ export default function HeroSection() {
   }, [active, slides.length]);
 
   return (
-    <section className="w-full h-screen relative overflow-hidden overflow-y-hidden font-inter">
+    <section className="w-full h-screen relative overflow-hidden font-inter">
       {/* SLIDER */}
       <div
         ref={sliderRef}
@@ -50,12 +50,25 @@ export default function HeroSection() {
             className="min-w-full h-full bg-cover bg-center snap-center relative"
             style={{ backgroundImage: `url(${bg})` }}
           >
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-black/30" />
+            {/* OVERLAY */}
+            <div className="absolute inset-0 bg-black/40" />
 
-            {/* Content */}
+            {/* CONTENT WRAPPER */}
             <div className="relative w-full max-w-7xl mx-auto h-full px-4 sm:px-6">
-              
+
+              {/* HERO TEXT */}
+              <div className="absolute top-1/2 left-6 sm:left-10 md:left-16 -translate-y-1/2 max-w-xl text-white">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
+                  Skills That Actually <br />
+                  <span className="text-blue-400">Pay Off.</span>
+                </h1>
+
+                <p className="text-lg sm:text-xl text-white/90 leading-relaxed">
+                  Online & offline courses in tech, business and digital
+                  innovation taught by industry experts.
+                </p>
+              </div>
+
               {/* LOGO CARD */}
               <div className="absolute top-32 md:top-44 right-0 translate-x-8 md:translate-x-12 bg-gradient-to-r from-[#0A77FF] to-[#012A7C] text-white shadow-2xl px-6 sm:px-7 py-5 sm:py-6">
                 <div className="flex items-center gap-3 mr-10">
